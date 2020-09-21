@@ -1,15 +1,19 @@
-#ifndef __I_DEGREE_DISTRIBUTION_H__
-#define __I_DEGREE_DISTRIBUTION_H__
+#ifndef __INT_DEGREE_DISTRIBUTION_H__
+#define __INT_DEGREE_DISTRIBUTION_H__
 
 #include "types.h"
 
-namespace simulator {
+namespace simulator
+{
 
-class int_degree_distribution {
+class int_degree_distribution
+{
 public:
-  virtual degree get_random_degree() const = 0;
-  virtual ~int_degree_distribution() {}
-  virtual void generate_distribution() = 0;
+   virtual void generate_distribution() = 0;
+   virtual degree get_random_degree() const = 0;
+   virtual ~int_degree_distribution()
+   {
+   }
 };
 
 } // namespace simulator

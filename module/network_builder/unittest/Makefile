@@ -9,7 +9,7 @@ U_SRCDIR := ../source
 BIN := $(U_BINDIR)/ut_$(MODULE)
 
 DEPENDENCY := $(shell find . -maxdepth 1 -type f)
-OBJS := $(MODULE).o ut_$(MODULE).o logger.o network.o node.o power_law_degree_distribution.o uniform_degree_distribution.o
+OBJS := $(MODULE).o ut_$(MODULE).o logger.o network.o node.o constant_degree_distribution.o poisson_degree_distribution.o power_law_degree_distribution.o uniform_degree_distribution.o
 
 .DELETE_ON_ERROR :
 .PHONY : run

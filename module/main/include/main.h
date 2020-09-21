@@ -11,7 +11,8 @@
 
 int main(int argc, char **argv);
 
-namespace simulator {
+namespace simulator
+{
 
 class int_network;
 class int_event_queue;
@@ -22,12 +23,14 @@ void job(const config &configuration,
          result_list &resultList);
 void save(const result_list &resultList, const std::string &resultFilename);
 
-network_properties create_network_properties(const config &configuration);
-std::unique_ptr<int_network> build_network(const config &configuration);
+std::unique_ptr<int_network> build_network(const config &configuration, std::mt19937 &randomNumberGenerator);
 std::unique_ptr<int_event_queue>
-initialize_propagation(const std::unique_ptr<int_network> &network, const uint32_t numOfInitiallyInformedNodes);
-void run_simulation(const std::unique_ptr<int_network> &network,
-                    const std::unique_ptr<int_event_queue> &eventQueue);
+initialize_propagation(const std::unique_ptr<int_network> &network);
+time run_simulation(const std::unique_ptr<int_network> &network,
+                    const std::unique_ptr<int_event_queue> &eventQueue,
+                    const uint32_t numOfInitiallyInformedNodes);
+
+network_properties create_network_properties(const config &configuration);
 
 std::ostream &operator<<(std::ostream &output,
                          const result_record &resultRecord);

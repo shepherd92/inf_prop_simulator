@@ -1,12 +1,12 @@
 PROJECT_NAME := simulator
 CC    := g++
-CDEFS := -std=c++17 -Wall -Werror -Wextra -pthread
+CDEFS := -std=c++17 -Wall -Werror -Wextra -pthread -pedantic-errors -DLOGGING
 LDEFS := -m64 -pthread
 
 ROOT      := .
 BUILDDIR  := $(ROOT)/build
 
-.PHONY : all release debug run relrun gdb valgrind profile coverage doxygen evaluation clean
+.PHONY : all release debug run relrun gdb valgrind profile coverage doxygen clean
 .EXPORT_ALL_VARIABLES :
 
 MAKEFLAGS += --no-print-directory
@@ -35,9 +35,6 @@ relrun : release
 
 profile : run
 	@${MAKE} $@
-
-evaluation :
-	@${MAKE} -C evaluator
 
 ###################################################################
 else

@@ -7,7 +7,8 @@
 #include <utility>
 #include <vector>
 
-namespace simulator {
+namespace simulator
+{
 
 class int_node;
 
@@ -17,52 +18,96 @@ typedef uint32_t node_id;
 typedef uint32_t degree;
 typedef std::vector<std::unique_ptr<int_node>> int_node_list;
 
-enum level : uint32_t {
-  EMERG,
-  ALERT,
-  CRIT,
-  ERR,
-  WARNING,
-  NOTICE,
-  INFO,
-  DEBUG,
-  INVALID
+enum level : uint32_t
+{
+   EMERG,
+   ALERT,
+   CRIT,
+   ERR,
+   WARNING,
+   NOTICE,
+   INFO,
+   DEBUG,
+   INVALID
 };
 
-struct connection {
-  enum class type { incoming, outgoing };
+struct connection
+{
+   enum class type
+   {
+      incoming, outgoing
+   };
 
-  type mType{type::outgoing};
-  node_id mToNodeId{0U};
+   connection(const type t, const node_id n)
+      : mType(t)
+      , mToNodeId(n)
+   {
+   }
+
+   type mType {type::outgoing};
+   node_id mToNodeId {0U};
 };
 
-enum class degree_distribution_type { uniform, power_law, invalid = 255U };
-struct degree_distribution_range {
-  degree mMinimum;
-  degree mMaximum;
+enum class degree_distribution_type : uint8_t
+{
+   constant,
+   uniform,
+   poisson,
+   power_law,
+   invalid = 255U
+};
+
+enum class connectivity_result : uint8_t
+{
+   everything_ok,
+   dangling_connections
+};
+
+struct degree_distribution_range
+{
+   degree mMinimum;
+   degree mMaximum;
 };
 
 // specifies network properties for the network builder
-struct network_properties {
-  uint32_t mNumOfNodes{0U};
-  double mTransmissibility{1.0};
-  degree_distribution_type mDegreeDistributionType{
-      degree_distribution_type::invalid};
-  degree_distribution_range mDegreeDistributionRange{1, mNumOfNodes};
-  double mDegreeDistributionPower{0.0};
+struct network_properties
+{
+   uint32_t mNumOfNodes {0U};
+   double mCharacteristicTime {1.0};
+   degree_distribution_type mDegreeDistributionType {
+       degree_distribution_type::invalid};
+   degree mKMin {1};
+   double mDegreeDistributionParameter1 {0.0};
+   double mDegreeDistributionParameter2 {0.0};
+   bool mDanglingConnectionsOk {false};
+   bool mLoopsOk {false};
 };
 
 struct event {
-  node_id mFromNodeId{0U};
-  node_id mToNodeId{0U};
-  time mTime{0.0};
+   event(const node_id from = 0U, const node_id to = 0U, const time t = 0.0)
+      : mFromNodeId(from)
+      , mToNodeId(to)
+      , mTime(t)
+   {
+   }
+
+   node_id mFromNodeId {0U};
+   node_id mToNodeId {0U};
+   time mTime {0.0};
 };
 
 typedef std::unique_ptr<std::vector<event>> event_list;
 
-struct result_record {
-  time mInformationTime{0.0};
-  degree mDegree{0U};
+struct result_record
+{
+   result_record(const time t, const degree d)
+      : mInformationTime(t)
+      , mDegree(d)
+   {
+   }
+
+   time mInformationTime {0.0};
+   degree mDegree {0U};
 };
 
 typedef std::vector<result_record> result;

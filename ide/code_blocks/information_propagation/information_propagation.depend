@@ -1,0 +1,100 @@
+# depslib dependency file v1.0
+1583517047 source:/home/shepherd/tex/research/information_propagation/simulator/module/config/source/config.cpp
+	<algorithm>
+	<cassert>
+	<fstream>
+	<regex>
+	<string>
+	<unordered_map>
+	"config.h"
+
+1583438040 source:/home/shepherd/tex/research/information_propagation/simulator/module/event_queue/source/event_queue.cpp
+	"event_queue.h"
+	"logger.h"
+	"types.h"
+
+1583438040 source:/home/shepherd/tex/research/information_propagation/simulator/module/logger/source/logger.cpp
+	<chrono>
+	<ctime>
+	<iomanip>
+	<iostream>
+	<mutex>
+	<sstream>
+	<utility>
+	"logger.h"
+
+1583516981 source:/home/shepherd/tex/research/information_propagation/simulator/module/main/source/main.cpp
+	<cassert>
+	<cstdint>
+	<iomanip>
+	<memory>
+	<mutex>
+	<string>
+	<thread>
+	<utility>
+	<vector>
+	"types.h"
+	"config.h"
+	"main.h"
+	"event_queue.h"
+	"logger.h"
+	"network_builder.h"
+	"node.h"
+
+1583516809 source:/home/shepherd/tex/research/information_propagation/simulator/module/network/source/network.cpp
+	<algorithm>
+	<limits>
+	<memory>
+	<random>
+	<vector>
+	"network.h"
+	"int_node.h"
+	"logger.h"
+	"types.h"
+
+1583516760 source:/home/shepherd/tex/research/information_propagation/simulator/module/network_builder/source/network_builder.cpp
+	<algorithm>
+	<cassert>
+	<chrono>
+	<cstdint>
+	<memory>
+	<numeric>
+	<random>
+	"logger.h"
+	"network.h"
+	"network_builder.h"
+	"node.h"
+	"power_law_degree_distribution.h"
+	"types.h"
+	"uniform_degree_distribution.h"
+
+1583516867 source:/home/shepherd/tex/research/information_propagation/simulator/module/node/source/node.cpp
+	<chrono>
+	<cstdint>
+	<memory>
+	<random>
+	<vector>
+	"types.h"
+	"node.h"
+	"int_degree_distribution.h"
+	"logger.h"
+
+1583516913 source:/home/shepherd/tex/research/information_propagation/simulator/module/power_law_degree_distribution/source/power_law_degree_distribution.cpp
+	<cassert>
+	<chrono>
+	<cmath>
+	<cstdint>
+	<random>
+	<vector>
+	"types.h"
+	"power_law_degree_distribution.h"
+
+1583516944 source:/home/shepherd/tex/research/information_propagation/simulator/module/uniform_degree_distribution/source/uniform_degree_distribution.cpp
+	"uniform_degree_distribution.h"
+	<cassert>
+	<chrono>
+	<cmath>
+	<cstdint>
+	<random>
+	"types.h"
+

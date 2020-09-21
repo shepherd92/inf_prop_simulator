@@ -1,5 +1,5 @@
-#ifndef __UNIFORM_DEGREE_DISTRIBUTION__
-#define __UNIFORM_DEGREE_DISTRIBUTION__
+#ifndef __UNIFORM_DEGREE_DISTRIBUTION_H__
+#define __UNIFORM_DEGREE_DISTRIBUTION_H__
 
 #include <random>
 
@@ -7,18 +7,25 @@
 
 #include "int_degree_distribution.h"
 
-namespace simulator {
+namespace simulator
+{
 
-class uniform_degree_distribution final : public int_degree_distribution {
+class uniform_degree_distribution final : public int_degree_distribution
+{
 public:
-  explicit uniform_degree_distribution(const degree_distribution_range range);
-  virtual void generate_distribution() override;
-  virtual degree get_random_degree() const override;
+   explicit uniform_degree_distribution(const degree kMin, const degree kMax, std::mt19937 &randomNumberGenerator);
+   virtual void generate_distribution() override;
+   virtual degree get_random_degree() const override;
+
+   const degree_distribution_range &get_range() const;
+   const std::uniform_real_distribution<double> &get_distribution() const;
 
 private:
-  const degree_distribution_range mRange;
-  mutable std::uniform_real_distribution<double> mDistribution;
-  mutable std::mt19937 mRandomNumberGenerator;
+   degree calculate_k_max(const degree kMax);
+
+   degree_distribution_range mRange;
+   mutable std::uniform_real_distribution<double> mDistribution;
+   std::mt19937 &mRandomNumberGenerator;
 };
 
 } // namespace simulator

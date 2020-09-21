@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="information_propagation" />
+		<Option makefile_is_custom="1" />
+		<Option execution_dir="/home/shepherd/tex/research/information_propagation/simulator" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../../build/debug/bin/simulator" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../.." />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="config.ini" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<MakeCommands>
+					<Build command="$make -f $makefile debug" />
+					<CompileFile command="$make -f $makefile $file" />
+					<Clean command="$make -f $makefile clean$target" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile $target" />
+					<SilentBuild command="$make -f $makefile debug &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+			<Target title="Release">
+				<Option output="build/debug/bin/simulator" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../.." />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<MakeCommands>
+					<Build command="$make -f $makefile release" />
+					<CompileFile command="$make -f $makefile $file" />
+					<Clean command="$make -f $makefile clean$target" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile $target" />
+					<SilentBuild command="$make -f $makefile release &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="../../../interface/int_degree_distribution.h" />
+		<Unit filename="../../../interface/int_event_queue.h" />
+		<Unit filename="../../../interface/int_network.h" />
+		<Unit filename="../../../interface/int_network_builder.h" />
+		<Unit filename="../../../interface/int_node.h" />
+		<Unit filename="../../../interface/logger.h" />
+		<Unit filename="../../../interface/logger.inl" />
+		<Unit filename="../../../interface/types.h" />
+		<Unit filename="../../../module/config/include/config.h" />
+		<Unit filename="../../../module/config/source/config.cpp" />
+		<Unit filename="../../../module/event_queue/include/event_queue.h" />
+		<Unit filename="../../../module/event_queue/source/event_queue.cpp" />
+		<Unit filename="../../../module/logger/source/logger.cpp" />
+		<Unit filename="../../../module/main/include/main.h" />
+		<Unit filename="../../../module/main/source/main.cpp" />
+		<Unit filename="../../../module/network/include/network.h" />
+		<Unit filename="../../../module/network/source/network.cpp" />
+		<Unit filename="../../../module/network_builder/include/network_builder.h" />
+		<Unit filename="../../../module/network_builder/source/network_builder.cpp" />
+		<Unit filename="../../../module/node/include/node.h" />
+		<Unit filename="../../../module/node/source/node.cpp" />
+		<Unit filename="../../../module/poisson_degree_distribution/include/poisson_degree_distribution.h" />
+		<Unit filename="../../../module/poisson_degree_distribution/source/poisson_degree_distribution.cpp" />
+		<Unit filename="../../../module/power_law_degree_distribution/include/power_law_degree_distribution.h" />
+		<Unit filename="../../../module/power_law_degree_distribution/source/power_law_degree_distribution.cpp" />
+		<Unit filename="../../../module/uniform_degree_distribution/include/uniform_degree_distribution.h" />
+		<Unit filename="../../../module/uniform_degree_distribution/source/uniform_degree_distribution.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

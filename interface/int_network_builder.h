@@ -3,18 +3,23 @@
 
 #include <memory>
 
-namespace simulator {
+namespace simulator
+{
 
 struct network_properties;
 class int_network;
 
-class int_network_builder {
+class int_network_builder
+{
 public:
-  virtual std::unique_ptr<int_network>
-  construct(const network_properties &networkProperties) = 0;
-  virtual ~int_network_builder() {}
+   virtual std::unique_ptr<int_network>
+      construct(const network_properties &networkProperties) = 0;
+   virtual ~int_network_builder()
+   {
+   }
 };
 
 } // namespace simulator
 
 #endif
+
