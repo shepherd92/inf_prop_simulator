@@ -4,7 +4,7 @@
 	<Project>
 		<Option title="information_propagation" />
 		<Option makefile_is_custom="1" />
-		<Option execution_dir="/home/shepherd/tex/research/information_propagation/simulator" />
+		<Option execution_dir="../information_propagation" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -21,18 +21,19 @@
 				<MakeCommands>
 					<Build command="$make -f $makefile debug" />
 					<CompileFile command="$make -f $makefile $file" />
-					<Clean command="$make -f $makefile clean$target" />
+					<Clean command="$make -f $makefile clean" />
 					<DistClean command="$make -f $makefile distclean$target" />
 					<AskRebuildNeeded command="$make -q -f $makefile $target" />
 					<SilentBuild command="$make -f $makefile debug &gt; $(CMD_NULL)" />
 				</MakeCommands>
 			</Target>
 			<Target title="Release">
-				<Option output="build/debug/bin/simulator" prefix_auto="1" extension_auto="1" />
+				<Option output="../../../build/debug/bin/simulator" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="../../.." />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="config.ini" />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -42,7 +43,7 @@
 				<MakeCommands>
 					<Build command="$make -f $makefile release" />
 					<CompileFile command="$make -f $makefile $file" />
-					<Clean command="$make -f $makefile clean$target" />
+					<Clean command="$make -f $makefile clean" />
 					<DistClean command="$make -f $makefile distclean$target" />
 					<AskRebuildNeeded command="$make -q -f $makefile $target" />
 					<SilentBuild command="$make -f $makefile release &gt; $(CMD_NULL)" />
@@ -52,36 +53,50 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../../../interface/int_degree_distribution.h" />
-		<Unit filename="../../../interface/int_event_queue.h" />
-		<Unit filename="../../../interface/int_network.h" />
-		<Unit filename="../../../interface/int_network_builder.h" />
-		<Unit filename="../../../interface/int_node.h" />
-		<Unit filename="../../../interface/logger.h" />
-		<Unit filename="../../../interface/logger.inl" />
-		<Unit filename="../../../interface/types.h" />
-		<Unit filename="../../../module/config/include/config.h" />
-		<Unit filename="../../../module/config/source/config.cpp" />
-		<Unit filename="../../../module/event_queue/include/event_queue.h" />
-		<Unit filename="../../../module/event_queue/source/event_queue.cpp" />
-		<Unit filename="../../../module/logger/source/logger.cpp" />
-		<Unit filename="../../../module/main/include/main.h" />
-		<Unit filename="../../../module/main/source/main.cpp" />
-		<Unit filename="../../../module/network/include/network.h" />
-		<Unit filename="../../../module/network/source/network.cpp" />
-		<Unit filename="../../../module/network_builder/include/network_builder.h" />
-		<Unit filename="../../../module/network_builder/source/network_builder.cpp" />
-		<Unit filename="../../../module/node/include/node.h" />
-		<Unit filename="../../../module/node/source/node.cpp" />
-		<Unit filename="../../../module/poisson_degree_distribution/include/poisson_degree_distribution.h" />
-		<Unit filename="../../../module/poisson_degree_distribution/source/poisson_degree_distribution.cpp" />
-		<Unit filename="../../../module/power_law_degree_distribution/include/power_law_degree_distribution.h" />
-		<Unit filename="../../../module/power_law_degree_distribution/source/power_law_degree_distribution.cpp" />
-		<Unit filename="../../../module/uniform_degree_distribution/include/uniform_degree_distribution.h" />
-		<Unit filename="../../../module/uniform_degree_distribution/source/uniform_degree_distribution.cpp" />
-		<Extensions>
-			<code_completion />
-			<debugger />
-		</Extensions>
+		<Unit filename="../../../Makefile" />
+		<Unit filename="../../../config.ini" />
+		<Unit filename="../../../inc/types.h" />
+		<Unit filename="../../../src/main/config.cpp" />
+		<Unit filename="../../../src/main/event_queue.cpp" />
+		<Unit filename="../../../src/main/inc/config.h" />
+		<Unit filename="../../../src/main/inc/event_queue.h" />
+		<Unit filename="../../../src/main/inc/logger.h" />
+		<Unit filename="../../../src/main/inc/logger.inl" />
+		<Unit filename="../../../src/main/inc/main.h" />
+		<Unit filename="../../../src/main/logger.cpp" />
+		<Unit filename="../../../src/main/main.cpp" />
+		<Unit filename="../../../src/main/mock/mock_logger.h" />
+		<Unit filename="../../../src/main/test/test_config.cpp" />
+		<Unit filename="../../../src/main/test/test_event_queue.cpp" />
+		<Unit filename="../../../src/main/test/test_logger.cpp" />
+		<Unit filename="../../../src/network/degree_distribution/constant_degree_distribution.cpp" />
+		<Unit filename="../../../src/network/degree_distribution/inc/constant_degree_distribution.h" />
+		<Unit filename="../../../src/network/degree_distribution/inc/int_degree_distribution.h" />
+		<Unit filename="../../../src/network/degree_distribution/inc/poisson_degree_distribution.h" />
+		<Unit filename="../../../src/network/degree_distribution/inc/power_law_degree_distribution.h" />
+		<Unit filename="../../../src/network/degree_distribution/inc/uniform_degree_distribution.h" />
+		<Unit filename="../../../src/network/degree_distribution/mock/mock_constant_degree_distribution.h" />
+		<Unit filename="../../../src/network/degree_distribution/mock/mock_poisson_degree_distribution.h" />
+		<Unit filename="../../../src/network/degree_distribution/mock/mock_power_law_degree_distribution.h" />
+		<Unit filename="../../../src/network/degree_distribution/mock/mock_uniform_degree_distribution.h" />
+		<Unit filename="../../../src/network/degree_distribution/poisson_degree_distribution.cpp" />
+		<Unit filename="../../../src/network/degree_distribution/power_law_degree_distribution.cpp" />
+		<Unit filename="../../../src/network/degree_distribution/test/test_constant_degree_distribution.cpp" />
+		<Unit filename="../../../src/network/degree_distribution/test/test_poisson_degree_distribution.cpp" />
+		<Unit filename="../../../src/network/degree_distribution/test/test_power_law_degree_distribution.cpp" />
+		<Unit filename="../../../src/network/degree_distribution/test/test_uniform_degree_distribution.cpp" />
+		<Unit filename="../../../src/network/degree_distribution/uniform_degree_distribution.cpp" />
+		<Unit filename="../../../src/network/inc/network.h" />
+		<Unit filename="../../../src/network/inc/network_builder.h" />
+		<Unit filename="../../../src/network/inc/node.h" />
+		<Unit filename="../../../src/network/mock/mock_network.h" />
+		<Unit filename="../../../src/network/mock/mock_node.h" />
+		<Unit filename="../../../src/network/network.cpp" />
+		<Unit filename="../../../src/network/network_builder.cpp" />
+		<Unit filename="../../../src/network/node.cpp" />
+		<Unit filename="../../../src/network/test/test_network.cpp" />
+		<Unit filename="../../../src/network/test/test_network_builder.cpp" />
+		<Unit filename="../../../src/network/test/test_node.cpp" />
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

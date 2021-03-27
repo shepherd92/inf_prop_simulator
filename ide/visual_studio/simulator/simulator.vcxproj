@@ -63,13 +63,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\interface;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\config\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\event_queue\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\logger\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\main\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\network\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\network_builder\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\node\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\constant_degree_distribution\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\poisson_degree_distribution\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\power_law_degree_distribution\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\uniform_degree_distribution\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\interface;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\config\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\event_queue\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\logger\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\main\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\network\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\network_builder\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\node\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\constant_degree_distribution\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\poisson_degree_distribution\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\power_law_degree_distribution\include;C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\module\uniform_degree_distribution\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\JUP2BP\everything\pr\inf_prop\program\simulator\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -79,6 +79,9 @@
       <Optimization>Disabled</Optimization>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <AdditionalOptions>/std:c++14 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4127;4503;4514;4548;4710;4820;4868;4996%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -90,10 +93,12 @@
     <ClCompile>
       <PreprocessorDefinitions>DBG</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <AdditionalOptions>/std:c++14 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4127;4503;4514;4548;4710;4820;4868;4996%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
@@ -111,6 +116,9 @@
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <AdditionalOptions>/std:c++14 %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>DBG</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4127;4503;4514;4548;4710;4820;4868;4996%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -118,42 +126,41 @@
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <AdditionalOptions>/std:c++14 %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>DBG</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4127;4503;4514;4548;4710;4820;4868;4996%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\module\config\source\config.cpp" />
-    <ClCompile Include="..\..\..\module\constant_degree_distribution\source\constant_degree_distribution.cpp" />
-    <ClCompile Include="..\..\..\module\event_queue\source\event_queue.cpp" />
-    <ClCompile Include="..\..\..\module\logger\source\logger.cpp" />
-    <ClCompile Include="..\..\..\module\main\source\main.cpp" />
-    <ClCompile Include="..\..\..\module\network\source\network.cpp" />
-    <ClCompile Include="..\..\..\module\network_builder\source\network_builder.cpp" />
-    <ClCompile Include="..\..\..\module\node\source\node.cpp" />
-    <ClCompile Include="..\..\..\module\poisson_degree_distribution\source\poisson_degree_distribution.cpp" />
-    <ClCompile Include="..\..\..\module\power_law_degree_distribution\source\power_law_degree_distribution.cpp" />
-    <ClCompile Include="..\..\..\module\uniform_degree_distribution\source\uniform_degree_distribution.cpp" />
+    <ClCompile Include="..\..\..\source\config\config.cpp" />
+    <ClCompile Include="..\..\..\source\constant_degree_distribution\constant_degree_distribution.cpp" />
+    <ClCompile Include="..\..\..\source\event_queue\event_queue.cpp" />
+    <ClCompile Include="..\..\..\source\logger\logger.cpp" />
+    <ClCompile Include="..\..\..\source\main\main.cpp" />
+    <ClCompile Include="..\..\..\source\network\network.cpp" />
+    <ClCompile Include="..\..\..\source\network\network_builder.cpp" />
+    <ClCompile Include="..\..\..\source\node\node.cpp" />
+    <ClCompile Include="..\..\..\source\poisson_degree_distribution\poisson_degree_distribution.cpp" />
+    <ClCompile Include="..\..\..\source\power_law_degree_distribution\power_law_degree_distribution.cpp" />
+    <ClCompile Include="..\..\..\source\uniform_degree_distribution\uniform_degree_distribution.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\interface\logger.inl" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\interface\int_degree_distribution.h" />
-    <ClInclude Include="..\..\..\interface\int_event_queue.h" />
-    <ClInclude Include="..\..\..\interface\int_network.h" />
-    <ClInclude Include="..\..\..\interface\int_network_builder.h" />
-    <ClInclude Include="..\..\..\interface\int_node.h" />
-    <ClInclude Include="..\..\..\interface\logger.h" />
-    <ClInclude Include="..\..\..\interface\types.h" />
-    <ClInclude Include="..\..\..\module\config\include\config.h" />
-    <ClInclude Include="..\..\..\module\constant_degree_distribution\include\constant_degree_distribution.h" />
-    <ClInclude Include="..\..\..\module\event_queue\include\event_queue.h" />
-    <ClInclude Include="..\..\..\module\main\include\main.h" />
-    <ClInclude Include="..\..\..\module\network\include\network.h" />
-    <ClInclude Include="..\..\..\module\network_builder\include\network_builder.h" />
-    <ClInclude Include="..\..\..\module\node\include\node.h" />
-    <ClInclude Include="..\..\..\module\poisson_degree_distribution\include\poisson_degree_distribution.h" />
-    <ClInclude Include="..\..\..\module\power_law_degree_distribution\include\power_law_degree_distribution.h" />
-    <ClInclude Include="..\..\..\module\uniform_degree_distribution\include\uniform_degree_distribution.h" />
+    <ClInclude Include="..\..\..\include\int_degree_distribution.h" />
+    <ClInclude Include="..\..\..\include\logger.h" />
+    <ClInclude Include="..\..\..\include\types.h" />
+    <ClInclude Include="..\..\..\include\config.h" />
+    <ClInclude Include="..\..\..\include\constant_degree_distribution.h" />
+    <ClInclude Include="..\..\..\include\event_queue.h" />
+    <ClInclude Include="..\..\..\include\main.h" />
+    <ClInclude Include="..\..\..\include\network.h" />
+    <ClInclude Include="..\..\..\include\network_builder.h" />
+    <ClInclude Include="..\..\..\include\node.h" />
+    <ClInclude Include="..\..\..\include\poisson_degree_distribution.h" />
+    <ClInclude Include="..\..\..\include\power_law_degree_distribution.h" />
+    <ClInclude Include="..\..\..\include\uniform_degree_distribution.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
